@@ -146,7 +146,7 @@ public class StringMethods {
 		if(s.contains(substring)) {
 			int fromIndex = 0;
 			ArrayList<Integer> fromIndexes = new ArrayList<Integer>();
-			while((fromIndex = s.indexOf(substring, fromindex)) != -1) {
+			while((fromIndex = s.indexOf(substring, fromIndex)) != -1) {
 				fromIndex++;
 				fromIndexes.add(fromIndex);
 			}
@@ -164,12 +164,24 @@ public class StringMethods {
 	public static boolean palindrome(String s) {
 		String backwards = "";
 		String forwards = "";
-		for(int i = 0; i < s.length(); i++) {
-			if(s.charAt(i) != ':' && s.charAt(i) != '?' && s.charAt(i) != ',' &&) //finish
+		for (int i = 0; i < s.length(); i++) {
+			if (s.charAt(i) != ':' && s.charAt(i) != '?' && s.charAt(i) != ',' && s.charAt(i) != '.' && s.charAt(i) != ' ' && s.charAt(i) != '–') {
+				
+				forwards += s.charAt(i);
+			}
+		}
+		forwards = forwards.toLowerCase();
+
+		for (int i = forwards.length() - 1; i >= 0; i--) {
+			backwards += forwards.charAt(i);
+		}
+
+		if (backwards.equals(forwards)) {
+			return true;
 		}
 		return false;
 	}
-	
+
 }
 
 class Utilities {
