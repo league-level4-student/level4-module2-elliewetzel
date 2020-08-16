@@ -87,6 +87,7 @@ public class StringMethods {
 		return null;
 	}
 	
+	
 	// Return the sum of all numerical digits in the String
 	public static int numeralSum(String s) {
 		int sum = 0;
